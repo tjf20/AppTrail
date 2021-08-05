@@ -45,7 +45,7 @@ jobs:
       - store_artifacts:
           path: test-results
 
-    android-build-and-test:
+  android-build-and-test:
     working_directory: ~/AppTrail/android
     docker:
       - image: circleci/android:api-29-node
