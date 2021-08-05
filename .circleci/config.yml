@@ -51,7 +51,6 @@ jobs:
       xcode: 11.3.0
     environment:
       FL_OUTPUT_DIR: output
-      FASTLANE_LANE: test
 
     steps:
       - checkout
@@ -99,17 +98,13 @@ jobs:
           paths:
             - ios/Pods
 
-      - run:
-          name: Fastlane
-          command: bundle exec fastlane $FASTLANE_LANE
-          working_directory: ios
-
-      - store_artifacts:
+     - store_artifacts:
           path: output
           
       - store_test_results:
           path: output/scan
-            
+
+
   android-build-and-test:
     working_directory: ~/AppTrail/android
     docker:
@@ -130,14 +125,7 @@ jobs:
           key: bundle-v1-{{ checksum "Gemfile.lock" }}-{{ arch }}
           paths:
             - vendor/bundle
-
-      - run:
-          name: fastlane tests
-          command: |
-            mkdir -p test-results/fastlane
-            bundle exec fastlane test
-            mv fastlane/report.xml test-results/fastlane
-
+      
       - store_test_results:
           path: test-results
 
