@@ -98,7 +98,7 @@ jobs:
           paths:
             - ios/Pods
 
-     - store_artifacts:
+      - store_artifacts:
           path: output
           
       - store_test_results:
