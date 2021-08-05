@@ -6,6 +6,30 @@
  * @flow strict-local
  */
 
+ import React from 'react';
+ import { StyleSheet, Text, View } from 'react-native';
+ 
+ 
+ export default class App extends React.Component {
+   render() {
+     return (
+       <View style={styles.container}>
+         <Text>Hello from the Appalachian!</Text>
+       </View>
+     );
+   }
+ }
+ 
+ const styles = StyleSheet.create({
+   container: {
+     flex: 1,
+     backgroundColor: '#fff',
+     alignItems: 'center',
+     justifyContent: 'center',
+   },
+ });
+
+/*
 import React from 'react';
 import type {Node} from 'react';
 import {
@@ -110,3 +134,4 @@ const styles = StyleSheet.create({
 });
 
 export default App;
+*/
